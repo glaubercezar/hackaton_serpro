@@ -1,0 +1,36 @@
+<div ng-show="showScreen"> 
+    <a ui-sref="procons" class="pull-right btn btn-primary btn-outline btn-rounded">Voltar</a>
+    <h2>PROCONS <small>Editar informações de um PROCON.</small></h2>
+    <div class=jumbotron>
+
+        <div class=container>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Informe os dados e clique em Salvar.</div>
+                <div class="panel-body">
+                   
+                    <h5>Descrição</h5>
+                    <input type="text" name="desc" ng-model="form.name" maxlength="30"  class="form-control" placeholder="Digite um título..." aria-describedby="basic-addon1" required>                    
+                    <br>
+                    <h5>Latitude</h5>
+                    <input type="text" name="lat" ng-model="form.latitude" maxlength="30"  class="form-control" aria-describedby="basic-addon1" required>
+                    <br>
+                    <h5>Longitude</h5>
+                    <input type="text" name="long" ng-model="form.longitude" maxlength="30"  class="form-control" aria-describedby="basic-addon1" required>
+                    <br>
+                    <h5>CEP</h5>
+                    <input type="text" name="cep" ng-model="form.cep" maxlength="30"  class="form-control" aria-describedby="basic-addon1" required>
+                    <br>
+                    <h5>Endereço</h5>
+                    <input type="text" name="address" ng-model="form.address" maxlength="30"  class="form-control" aria-describedby="basic-addon1" required>
+
+                    <br>
+                    <p><a class="btn btn-success btn-lg btn-sen-info" ng-click="sendProconForm()" ng-disabled="sendButtonDisabled" role="button">Salvar</a></p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

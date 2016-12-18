@@ -1,0 +1,31 @@
+
+\begin{enumerate}
+\item \textbf{Funcionais} O software AnaclaraBot será incluido no site de uma empresa, com isso, quando algum internauta acessar esse site, poderá iniciar uma conversa. A cada frase que esse internauta enviar, ela responderá conforme a identificação das palavras chaves contidas no texto (a acertude das respostas é de total responsabilidade do \textit{Watson}, juntamente com o treinamento que o administrador do sistema forneceu). A cada interação, as motivadas pelo internauta ou as respondidas pela AnaclaraBot serão armazenadas em um Banco de Dados. A descrição está na Figura \ref{fig:ana}.
+\\
+\\
+\begin{figure}[!ht]
+  \centering
+      \includegraphics[width=0.92\textwidth]{AnaclaraBot}
+  \caption{Descrição de funcionament}
+  \label{fig:ana}
+\end{figure}
+
+
+\item \textbf{Não Funcionais} 
+\begin{enumerate}
+\item O \textit{back-end} estará disponível para as requisições dos internautas, assim como para armazenar as interações, desde que o servidor fornecido por terceiros \textit{Amazon} esteja em pleno funcionamento.
+
+\item Terá uma senha, para que os seus serviços sejam consumidos, essa senha será armazenada em variável de ambiente do sistema operacional.
+
+\item Somente os administradores do sistema terão as senhas de acesso ao servidor.
+
+\item O software será desenvolvido seguindo os padrões de projetos descrita em \hyperref[designpat]{[2]}.
+
+\item O software será desenvolvido para rodar na seguinte configração mínima: 1 CPU, Linux Ubuntu, 2GB de Memória Ram e Acesso a rede internet. Instância T2 Small da \textit{Amazon} \hyperref[amazon]{[3]}.
+
+\item O sistema deverá ser acessado completamente via browser HTTP/HTML e via dispositivos Mobile.
+
+\end{enumerate}
+
+
+\end{enumerate}

@@ -1,0 +1,264 @@
+
+/*
+    Desktop
+*/
+@media screen and (min-width: 700px){
+
+    .chatbot-frame-conversation{
+        width: 345px;
+        height: 600px;
+    }
+
+    .chatbot-assistant-apresentation{
+        display: block;
+    }
+
+    .chatbot-line-start-frame-chat{
+        display: block;
+    }
+
+    .chatbot-chat-area{
+        height: calc(100% - 53px - 90px + 6px - 47px - 44px);
+    }
+
+    .chatbot-chat-area-large{
+        height: calc(100% - 53px - 120px);
+    }
+
+    .chatbot-chat-area-register-intern{
+        margin-top:  80px;
+    }
+
+    .chatbot-chat-area .box-input{
+        margin-top: 25px;
+    }
+
+    .chatbot-chat-area .avatar{
+        margin-top: 50px;
+    }
+
+    .chatbot-minimized-conversation-web{
+        display: block;
+    }
+
+    .chatbot-minimized-conversation-mob{
+        display: none;
+    }
+
+
+}
+
+
+/*
+    Celular landscape
+*/
+@media screen and (max-width:699px) and (orientation: landscape) {
+
+    .chatbot-frame-conversation{
+        width: 100%;
+        height: 100%;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+
+    .chatbot-assistant-apresentation{
+        display: none;
+    }
+
+    .chatbot-line-start-frame-chat{
+        display: none;
+    }
+
+    .chatbot-chat-area{
+        height: calc(100% - 53px - 90px);
+    }
+
+    .chatbot-chat-area-large{
+        height: calc(100% - 53px - 20px);
+    }
+
+    .chatbot-chat-area-register-intern{
+        margin-top:  30px;
+    }
+
+    .chatbot-chat-area .box-input{
+        margin-top: 15px;
+    }
+
+    .chatbot-chat-area .avatar{
+        margin-top: 20px;
+    }
+
+    .chatbot-minimized-conversation-web{
+        display: none;
+    }
+
+    .chatbot-minimized-conversation-mob{
+        display: block;
+    }
+
+    .chatbot-chat-area-register-intern{
+        margin-top: 0;
+    }
+
+    .chatbot-header .header-buttons{
+        width: 36px;
+    }
+
+    .chatbot-header .header-close i{
+        font-size: 18px;
+        margin-top: 16px;
+    }
+}
+
+
+/*
+    Celular portrait
+*/
+@media screen and (max-width:699px) and (orientation: portrait) {
+
+    .chatbot-frame-conversation{
+        width: 100%;
+        height: 100%;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important
+    }
+
+    .chatbot-assistant-apresentation{
+        display: block;
+    }
+
+    .chatbot-line-start-frame-chat{
+        display: block;
+    }
+
+    .chatbot-chat-area{
+        height: calc(100% - 53px - 90px + 6px - 47px - 44px);
+    }
+
+    .chatbot-chat-area-large{
+        height: calc(100% - 53px - 120px);
+    }
+
+    .chatbot-chat-area-register-intern{
+        margin-top:  80px;
+    }
+
+    .chatbot-chat-area .box-input{
+        margin-top: 25px;
+    }
+
+    .chatbot-chat-area .box-input:first-child{
+        margin-top: 10px;
+    }
+
+    .chatbot-chat-area .avatar{
+        margin-top: 0;
+    }
+
+    .chatbot-minimized-conversation-web{
+        display: none;
+    }
+
+    .chatbot-minimized-conversation-mob{
+        display: block;
+    }
+
+    .chatbot-header .header-buttons{
+        width: 36px;
+    }
+
+    .chatbot-header .header-close i{
+        font-size: 18px;
+        margin-top: 16px;
+    }
+
+}
+
+
+/*
+    Celular Pequeno portrait
+*/
+@media screen and (max-width:359px) and (orientation: portrait) {
+
+    .chatbot-frame-conversation{
+        width: 100%;
+        height: 100%;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important
+    }
+
+    .chatbot-assistant-apresentation{
+        display: block;
+    }
+
+    .chatbot-line-start-frame-chat{
+        display: block;
+    }
+
+    .chatbot-chat-area{
+        height: calc(100% - 53px - 90px + 6px - 47px - 44px);
+    }
+
+    .chatbot-chat-area-large{
+        height: calc(100% - 53px - 120px);
+    }
+
+    .chatbot-chat-area-register-intern{
+        margin-top:  80px;
+    }
+
+    .chatbot-chat-area .box-input{
+        margin-top: 25px;
+    }
+
+    .chatbot-chat-area .box-input:first-child{
+        margin-top: 10px;
+    }
+
+    .chatbot-chat-area .avatar{
+        margin-top: 0;
+    }
+
+    .chatbot-minimized-conversation-web{
+        display: none;
+    }
+
+    .chatbot-minimized-conversation-mob{
+        display: block;
+    }
+
+    .chatbot-header .header-buttons{
+        width: 30px;
+        font-size: 15px;
+    }
+
+    .chatbot-header .header-minimize{
+        font-size: 11px;
+    }
+
+    .chatbot-header .header-close i{
+        margin-top: 17px;
+        font-size: 16px;
+    }
+
+    .chatbot-header .header-minimize i{
+        margin-top: 17px;
+    }
+
+    .chatbot-header .header-title{
+        font-size: 14px;
+    }
+
+    .chatbot-chat-area-register-intern{
+        margin-top: 30px;
+    }
+}
+
+

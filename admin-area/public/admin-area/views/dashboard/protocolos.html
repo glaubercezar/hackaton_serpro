@@ -1,0 +1,33 @@
+<div ng-show="showScreen">
+    <h2>Protocolos <small>Lista de protocolos (Atendimentos)</small></h2>
+    <div class=jumbotron>
+
+        <div class=container>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Usuário</th>
+                        <th>Protocolo</th>
+                        <th>Data</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="prot in protocols">
+                        <td>{{$index + 1}}</td>
+                        <td>{{prot.user.firstName}}</td>
+                        <td>{{prot.code}}</td>
+                        <td>{{prot.date}}</td>
+                        <td align="right">
+                            <button type="button" ui-sref="protocoloView({id:prot._id})" class="btn btn-primary btn-xs">Visualizar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

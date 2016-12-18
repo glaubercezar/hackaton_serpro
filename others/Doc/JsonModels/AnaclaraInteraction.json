@@ -1,0 +1,44 @@
+
+# Objeto Interaction
+
+{
+	"interactionId" 		: 2131,
+	"userTextInteraction" 	: "vacina",
+	"userImageInteraction"	: null,
+	"userSoundInteraction"	: null,
+	"botInteraction"  		: "Sempre mantenha [...]",
+	"botImageInteraction"	: null,
+	"botSoundInteraction"	: null,
+	"date"					: "2016-11-02T16:29:09.000Z",
+	"intents"				: [
+								{
+									"intent" 		: "Aeroporto",
+									"confidence"	: "0.16709978332713935"
+								},
+								{
+									"intent" 		: "vacinação",
+									"confidence"	: "1"
+								}
+
+							  ],
+	"entities"				: [
+								{
+									"entity" 		: "Aeroporto",
+									"location"		: [0,4],
+									"value"			: "mala"
+								},
+								{
+									"entity" 		: "vacinação",
+									"location"		: [0,6],
+									"value"			: "cartão de vacinação"
+								}
+
+							  ]
+}
+
+
+
+
+
+
+

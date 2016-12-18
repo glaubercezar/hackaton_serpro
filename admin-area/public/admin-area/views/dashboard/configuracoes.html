@@ -1,0 +1,116 @@
+<div ng-show="showScreen"> <a ui-sref=imagem class="pull-right btn btn-primary btn-outline btn-rounded">Imagem</a>
+    <h2>Configurações <small>Altere as configurações de integração.</small></h2>
+    <div class=jumbotron>
+
+        <div class=container>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Altere os dados e clique em Salvar.</div>
+                <div class="panel-body">
+
+                    <div class="label-input">
+                        <h5>Nome</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" name="name" ng-model="form.name" maxlength="20" class="form-control" placeholder="Ana Clara" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Título</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-align-justify"></i></span>
+                            <input type="text" name="title" ng-model="form.title" maxlength="30"  class="form-control" placeholder="Agência de Aviação Civil" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>WorkspaceID</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-asterisk"></i></span>
+                            <input type="text" ng-model="form.watsonWorkspaceId"  name="watsonWorkspaceId" class="form-control" placeholder="600d461a-ac5e-4972-bd18-24bdfb3c07a2" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Watson Username</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-sort-by-attributes-alt"></i></span>
+                            <input type="text" ng-model="form.watsonUsername"  name="watsonUsername" class="form-control" placeholder="das11-asd11-2342fd-75745" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Watson Password</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" ng-model="form.watsonPassword"  name="watsonPassword" class="form-control" placeholder="2312321" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Watson Url</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-link"></i></span>
+                            <input type="text" ng-model="form.watsonUrl"  name="watsonUrl" class="form-control" placeholder="https://gateway.watsonplatform.net/conversation/api" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Watson Version</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-star"></i></span>
+                            <input type="text" ng-model="form.watsonVersion"  name="watsonVersion" class="form-control" placeholder="v1" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Watson Version Date</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input type="text" ng-model="form.watsonVersionDate"  name="watsonVersionDate" class="form-control" placeholder="2016-09-20" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Endereço SMTP</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input type="text" ng-model="form.mailSmtp"  class="form-control" placeholder="smtp.gmail.com" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Porta SMTP</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input type="text" ng-model="form.mailPort" class="form-control" placeholder="465" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Usuário SMTP</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input type="text" ng-model="form.mailUser"  class="form-control" placeholder="email@gmail.com" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+                    <div class="label-input">
+                        <h5>Senha SMTP</h5>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input type="password" ng-model="form.mailPass" class="form-control" placeholder="Senha" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+
+
+                    <p><a class="btn btn-success btn-lg btn-sen-info" ng-click="sendConfigurationForm()" ng-disabled="sendButtonDisabled" role="button">Salvar</a></p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

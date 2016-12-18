@@ -1,0 +1,29 @@
+<div ng-show="showScreen">
+
+    <h2>Imagem <small>Altere a imagem do Bot.</small></h2> <span class="bg-fade"></span>
+    <div class=jumbotron>
+        <div class=container>
+
+
+            <div class="jumbotron jumbotron-select">
+
+                <upload-button ng-disabled="disableImageSendButton" class="btn btn-default btn-upload btn-upload-image" url="{{clerkUploadUrl}}" param="image" accept="{{acceptTypes}}" required="true"
+                on-upload="onUpload(files)"
+                on-success="onUploadSuccess(response)"
+                on-error="onUploadError(response)"
+                on-complete="onUploadComplete(response)">Selecione uma Imagem</upload-button>
+
+                <br>
+                <br>
+
+                <p class="center-p">130 x 130px</p>
+            </div>
+
+            <div class="jumbotron jumbotron-select">
+                <div class="back-image">
+                    <img src="" id="imageShow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

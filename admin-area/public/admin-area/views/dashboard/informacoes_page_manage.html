@@ -1,0 +1,38 @@
+<style>
+    .ta-editor, .ta-editor .ta-html, .ta-editor > .ta-bind {
+        height:200px; min-height:200px !important;
+    }
+    .btn-toolbar > .btn-group {
+        margin-bottom:5px;
+    }
+</style>
+
+<div ng-show="showScreen"> 
+    <a ui-sref="informacoes" class="pull-right btn btn-primary btn-outline btn-rounded">Voltar</a>
+    <h2>Informações <small>Editar página de informações.</small></h2>
+    <div class=jumbotron>
+
+        <div class=container>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Informe os dados e clique em Salvar.</div>
+                <div class="panel-body">
+                   
+                    <h5>Título</h5>
+                    <input type="text" name="title" ng-model="form.title" maxlength="30"  class="form-control" placeholder="Digite o título..." aria-describedby="basic-addon1" required>
+                    
+                    <br>
+
+                    <h5>Texto da página</h5>
+                    <text-angular placeholder="Digite o texto..." class="text-left text-med text-gray" ng-model="form.text"></text-angular>
+                    
+                    <br>
+                    <p><a class="btn btn-success btn-lg btn-sen-info" ng-click="sendPageForm()" ng-disabled="sendButtonDisabled" role="button">Salvar</a></p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

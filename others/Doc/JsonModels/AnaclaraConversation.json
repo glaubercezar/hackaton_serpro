@@ -1,0 +1,55 @@
+
+# Objeto Conversation
+
+{
+	"conversationId" 		: "862c31dc-f06a-461d-860c-e36290c0b6e6",
+	"date"		 			: "2016-10-06",
+	"timeInitial"  			: "08:00:27",
+	"timeEnd"				: "08:13:54",
+	"automaticallyClosed"	: true,
+	"user"					: 8372163732467,
+	"interactions"			: [231231,937283,1231212],
+	"quiz"					: [
+							{
+								"type"			: "multiple",
+								"question"		: "Quais seus dias da semana preferidos?",
+								"choices"		: [
+									{
+										"choice" 		: "Segunda",
+										"userSelected"	: false
+									},
+									{
+										"choice" 		: "Terça",
+										"userSelected"	: true
+									},
+									{
+										"choice" 		: "Quarta",
+										"userSelected"	: true
+									},
+									{
+										"choice" 		: "Quinta",
+										"userSelected"	: true
+									}
+								]
+							}, 
+							{
+								"type": "binary",
+								"question"		: "Você gostou do atendimento?",
+								"choices"		: [
+									{
+										"choice" 		: "Sim",
+										"userSelected"	: false
+									},
+									{
+										"choice" 		: "Não",
+										"userSelected"	: false
+									},
+									{
+										"choice" 		: "Não sei",
+										"userSelected"	: true
+									}
+								]
+							}
+						  ]
+}
+

@@ -1,0 +1,82 @@
+
+\medskip
+\begin{lstlisting}[caption= User Collection]
+var UserSchema   = new mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: String,
+    cep: String,
+    conversations: [String]
+});
+\end{lstlisting}
+
+\medskip
+\begin{lstlisting}[caption= Interaction Collection]
+var EntitySchema   = new mongoose.Schema({
+    entity: String,
+    location: [Number],
+    value: String
+});
+
+
+var IntentSchema   = new mongoose.Schema({
+    intent: String,
+    confidence: Number
+});
+
+
+var InteractionSchema   = new mongoose.Schema({
+    interactionType: String,
+    userTextInteraction: String,
+    userImageInteraction: Buffer,
+    userSoundInteraction: Buffer,
+    botTextInteraction: String,
+    botImageInteraction: Buffer,
+    botSoundInteraction: Buffer,
+    date: String,
+    intents: [IntentSchema],
+    entities: [EntitySchema]
+});
+
+\end{lstlisting}
+
+\newpage
+\medskip
+\begin{lstlisting}[caption= Conversation Collection]
+var ChoiceSchema    = new mongoose.Schema({
+    choice: String,
+    userSelected: Boolean
+});
+
+
+var QuizSchema    = new mongoose.Schema({
+    type: String,
+    question: String,
+    choices: [ChoiceSchema]
+});
+
+var ConversationSchema   = new mongoose.Schema({
+    conversation_id: String,
+    date: String,
+    timeInitial: String,
+    timeEnd: String,
+    automaticallyClosed: Boolean,
+    interactions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Interaction'
+    }],
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    quiz: [QuizSchema]
+});
+
+\end{lstlisting}
+
+\medskip
+\begin{lstlisting}[caption= Clerk Collection]
+var ClerkSchema   = new mongoose.Schema({
+    image: { data: Buffer, contentType: String }
+});
+\end{lstlisting}

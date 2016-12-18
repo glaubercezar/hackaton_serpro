@@ -1,0 +1,10 @@
+{
+  "invalid_email"                       : { "code": 1,  "msg": "Email inválido."},
+  "invalid_first_name"                  : { "code": 2,  "msg": "Nome inválido."},
+  "invalid_last_name"                   : { "code": 3,  "msg": "Sobrenome inválido."},
+  "not_found"                           : { "code": 30, "msg": "Dado não encontrado" },
+  "invalid_cep"                         : { "code": 31, "msg": "CEP inválido."},
+  "invalid_text"                        : { "code": 32, "msg": "Informe um texto."},
+  "invalid_conversation_id"             : { "code": 33, "msg": "Código da conversa inválido."},
+  "invalid_image"                       : { "code": 34, "msg": "Selecione uma imagem."}
+}

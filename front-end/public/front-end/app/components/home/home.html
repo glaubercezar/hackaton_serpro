@@ -1,0 +1,231 @@
+
+<div class="chatbot-minimized-conversation-web" ng-click="maximizeConversation()" ng-show="stateConversationMin && loadReady">
+    <img src="/front-end/assets/img/assistant.png" class="ana" id="assistant-minimized-web">
+    <div class="help">Está precisando de ajuda?</div>
+    <div class="hr"></div>
+    <div class="nome"><span>{{cognitiveChatBoxName}}</span><br>AssistenteVirtual</div>
+    <div class="line-border-left"></div>
+</div>
+
+
+<div class="chatbot-minimized-conversation-mob" ng-click="maximizeConversation()" ng-show="stateConversationMin && loadReady">
+    <div class="back-assistant">
+        <img src="/front-end/assets/img/assistant.png" id="assistant-minimized-mob">
+    </div>
+
+    <div class="text-minimized">
+        Olá! Posso te ajudar?
+    </div>
+</div>
+
+<span class="chatbot-animatecontrol" ng-show="loadReady">
+
+    <div class="chatbot-frame-conversation" ng-show="stateConversation" ng-click="hideAttachMenu($event)">
+
+        <div class="chatbot-loading-frame" ng-show="allScreenLoading">
+            <div class="center-loading">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+            </div>
+        </div>
+
+        <div class="chatbot-all-screen-alert" ng-show="allScreenAlert">
+            <div class="all-screen-alert-text">
+                <div>{{allScreenAlertText}}</div>
+                <button class="bt" ng-click="hideAllScreenAlert()">Ok</button>
+            </div>
+        </div>
+
+
+
+        <div class="modal-chatbot modal-chatbot-sendimage">
+            <div class="modal-chatbot-intern">
+
+                <div class="close-modal-chatbot" ng-click="closeSendImageModal()"><i class="fa fa-close"></i></div>
+
+                <div class="title">{{modalSendImageData.name}}</div>
+
+                <upload-button ng-disabled="disableImageSendButton" class="btn btn-primary btn-upload btn-upload-image" url="{{imageUploadImageUrl}}" param="image" accept="{{acceptImageTypes}}" required="true"
+                               on-upload="onUploadImg(files)"
+                               on-success="onUploadImgSuccess(response)"
+                               on-error="onUploadImgError(response)"
+                               on-complete="onUploadImgComplete(response)">Selecione uma Imagem</upload-button>
+
+
+                <div class="back-image">
+                    <img src="" id="imageShow">
+                </div>
+
+
+                <button type="button" class="btn btn-danger send" ng-click="confirmImageUpload()" ng-show="sendImageButton">Salvar</button>
+
+            </div>
+        </div>
+
+        <div class="modal-chatbot modal-chatbot-content">
+
+            <div class="modal-chatbot-intern">
+
+                <div class="close-modal-chatbot" ng-click="closeBoxContentModal()"><i class="fa fa-close"></i></div>
+
+                <h3 class="title">{{boxContentTitle}}</h3>
+                <div class="content">
+                    Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="chatbot-frame-intern-conversation">
+
+            <div class="chatbot-header">
+
+                <div class="header-title" ng-draggable='dragOptions'>
+                    {{cognitiveChatBoxTitle}}
+                </div>
+
+                <div class="header-buttons header-close" ng-click="closeConversation()">
+                    <i class="fa fa-close"></i>
+                </div>
+
+                <div class="header-buttons header-minimize" ng-click="minimizeConversation()">
+                    <i class="fa fa-window-minimize"></i>
+                </div>
+
+            </div>
+
+            <div class="chatbot-assistant-apresentation">
+
+                <div class="chatbot-frame-assistant-img-frame">
+                    <img src="" id="assistant-apresentation">
+                </div>
+
+                <div class="chatbot-frame-assistant-txt-frame">
+
+                    <div class="frame-one">
+                        <span class="name">{{cognitiveChatBoxName}}</span>
+                        <br>
+                        <span class="function">Assistente Virtual</span>
+                    </div>
+
+                    <div class="frame-two" ng-show="loggedIn.status">
+
+                        <div class="icon-chat">
+                            <i class="fa fa-comment"></i>
+                        </div>
+
+                        <div class="welcome">Bem vindo ao nosso site!</div>
+
+                        <div class="clear"></div>
+
+                        <div class="assistant-typing" ng-show="assistantTyping"><img src="/front-end/assets/img/keyboard.png"> Assistente digitando ...</div>
+                    </div>
+
+                    <div class="frame-two" ng-show="decideLogin.status">
+                        <span>{{decideLogin.headerText}}</span>
+                    </div>
+
+                    <div class="frame-two" ng-show="doLogin.status">
+                        <span>{{doLogin.headerText}}</span>
+                    </div>
+
+                    <div class="frame-two" ng-show="doRegister.status">
+                        <span>{{doRegister.headerText}}</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="chatbot-line-start-frame-chat">
+                <div class="left"></div>
+                <div class="right"></div>
+                <button class="bt-return" ng-show="doRegister.status || doLogin.status" ng-click="showDecideLogin()"><i class="fa fa-mail-reply"></i></button>
+            </div>
+
+            <div class="clear"></div>
+
+
+            <div class="chatbot-chat-area chatbot-chat-area-large" ng-click="removeFormErros()" ng-keydown="removeFormErros()" ng-show="doLogin.status">
+
+                <img src="/front-end/assets/img/avatar.png" class="avatar">
+
+                <div class="box-input box-input-login">
+                    <div class="label">Email<span class="span-error" id="error-1"> (Informação inválida)</span></div>
+                    <input type="text" id="input-1" placeholder="joao.silva@gmail.com" ng-model="doLogin.form.email" name="email">
+                </div>
+
+                <button class="bt-send-form" ng-click="sendLoginForm()">Login</button>
+
+            </div>
+
+            <div class="chatbot-chat-area chatbot-chat-area-large" ng-show="decideLogin.status">
+
+                <div class="chatbot-chat-area-register-intern">
+                    <button class="bt-login-screen bt-register" ng-click="showRegister()">Cadastrar</button>
+
+                    <div class="text-login">
+                        Ou, caso já tenha um cadastro, realize o <u>login</u>.
+                    </div>
+
+                    <button class="bt-login-screen bt-login" ng-click="showLogin()">Login</button>
+                </div>
+
+            </div>
+
+            <div class="chatbot-chat-area chatbot-chat-area-large" ng-show="doRegister.status" ng-click="removeFormErros()" ng-keydown="removeFormErros()">
+
+                <div class="box-input">
+                    <div class="label">Nome<span class="span-error" id="error-2"> (Informação inválida)</span></div>
+                    <input type="text" id="input-2" placeholder="João" ng-model="doRegister.form.firstName" name="firstName">
+                </div>
+
+                <div class="box-input">
+                    <div class="label">Sobrenome<span class="span-error" id="error-3"> (Informação inválida)</span></div>
+                    <input type="text" id="input-3" placeholder="Silva" ng-model="doRegister.form.lastName" name="lastName">
+                </div>
+
+                <div class="box-input">
+                    <div class="label">Email<span class="span-error" id="error-1"> (Informação inválida)</span></div>
+                    <input type="text" id="input-1" placeholder="joao.silva@gmail.com" ng-model="doRegister.form.email" name="email">
+                </div>
+
+                <div class="box-input">
+                    <div class="label">Cep<span class="span-error" id="error-31"> (Informação inválida)</span></div>
+                    <input type="text" id="input-31" maxlength="9" onkeypress="mascaraChatbot(this, '#####-###')" placeholder="72000-000" ng-model="doRegister.form.cep" name="cep">
+                </div>
+
+                <button class="bt-send-form" ng-click="sendRegisterForm()">Enviar</button>
+
+            </div>
+
+
+            <div class="chatbot-chat-area" id="chatbot-conversation-area" ng-show="loggedIn.status"></div>
+
+            <div class="chatbot-frame-type" ng-show="loggedIn.status">
+
+                <div class="menu-attach animate-show animate-hide"  ng-mouseleave="hideAttachMenu(null, true)" ng-show="stateAttachMenu">
+                    <div class="item" ng-click="openImageModal()"><i class="fa fa-image"></i></div>
+                    <div class="item" ng-click="speechToText()"><i class="fa fa-music"></i></div>
+                </div>
+
+                <div class="icon-type">
+                    <div class="icon-attach" ng-click="toggleAttachMenu()">
+                        <i class="fa fa-paperclip"></i>
+                    </div>
+                </div>
+
+                <input type="text" ng-disabled="userTextDisabled" ng-model="userText" ng-keyup="$event.keyCode == 13 && sendInteraction($event)" name="user-text" id="user-text">
+
+                <div class="icon-type">
+                    <div class="icon-send">
+                        <i class="fa fa-send" ng-click="sendInteraction($event)"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="chatbot-border-bottom"></div>
+
+    </div>
+</span>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=0">
+
+    <title>RoboCon</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angular/angular-route.js"></script>
+    <script src="assets/libs/angular/angular-animate.js"></script>
+    <script src="assets/libs/angular/angular-cookies.js"></script>
+    <script src="assets/libs/angular/angular-local-storage.js"></script>
+    <script src="assets/libs/angular/angular-scroll.min.js"></script>
+    <script src="assets/libs/jQuery/jquery-3.1.1.min.js"></script>
+    <script src="assets/libs/angular-upload/angular-upload.js"></script>
+    <script src="assets/libs/watson/watson-speech.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/app.routes.js"></script>
+    <script src="assets/js/default.js"></script>
+
+    <link rel="stylesheet" href="assets/libs/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/general.css">
+    <link rel="stylesheet" href="assets/css/btn.css">
+    <link rel="stylesheet" href="assets/css/media.css">
+    <link rel=stylesheet href="assets/libs/angular-upload/src/directives/btnUpload.min.css">
+
+    <!-- Providers -->
+    <script src="app/components/home/providers/requests.js"></script>
+
+    <!-- Directives -->
+    <script src="app/components/home/directives/ngDraggable.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/components/home/home.js"></script>
+
+
+</head>
+<body ng-app="cognitiveChatBox">
+    <div ng-view></div>
+</body>
+</html>

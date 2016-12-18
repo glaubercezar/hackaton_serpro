@@ -1,0 +1,106 @@
+
+\medskip
+\begin{lstlisting}[language=json, caption= Exemplo da estrutura User de dados já no formato MongoDB, label={list:UserJsonSample}]
+{
+	"userId" 			: 1,
+	"firstName" 		: "Luiz",
+	"lastName"  		: "Medeiros",
+	"email"				: "luiz.medeiros@cognitivesolutions.com.br",
+	"cep"				: "72000-000",
+	"conversations"		: ["12329-asdasd21-asdaad", "kopsa-09877-asd-asdad"]
+}
+\end{lstlisting}
+
+\medskip
+\begin{lstlisting}[language=json, caption= Exemplo da estrutura Conversation de dados já no formato MongoDB, label={list:ConversationJsonSample}]
+{
+	"conversationId" 		: "862c31dc-f06a-461d-860c-e36290c0b6e6",
+	"date"		 			: "2016-10-06",
+	"timeInitial"  			: "08:00:27",
+	"timeEnd"				: "08:13:54",
+	"automaticallyClosed"	: true,
+	"user"					: 8372163732467,
+	"interactions"			: [231231,937283,1231212],
+	"quiz"					: [
+							{
+								"type"			: "multiple",
+								"question"		: "Quais seus dias da semana preferidos?",
+								"choices"		: [
+									{
+										"choice" 		: "Segunda",
+										"userSelected"	: false
+									},
+									{
+										"choice" 		: "Terça",
+										"userSelected"	: true
+									},
+									{
+										"choice" 		: "Quarta",
+										"userSelected"	: true
+									},
+									{
+										"choice" 		: "Quinta",
+										"userSelected"	: true
+									}
+								]
+							}, 
+							{
+								"type": "binary",
+								"question"		: "Você gostou do atendimento?",
+								"choices"		: [
+									{
+										"choice" 		: "Sim",
+										"userSelected"	: false
+									},
+									{
+										"choice" 		: "Não",
+										"userSelected"	: false
+									},
+									{
+										"choice" 		: "Não sei",
+										"userSelected"	: true
+									}
+								]
+							}
+						  ]
+}
+
+\end{lstlisting}
+
+\newpage
+\medskip
+\begin{lstlisting}[language=json, caption= Exemplo da estrutura Interaction de dados já no formato MongoDB, label={list:InteractionJsonSample}]
+{
+	"interactionId" 		: 2131,
+	"userTextInteraction" 	: "vacina",
+	"userImageInteraction"	: null,
+	"userSoundInteraction"	: null,
+	"botInteraction"  		: "Sempre mantenha [...]",
+	"botImageInteraction"	: null,
+	"botSoundInteraction"	: null,
+	"date"					: "2016-11-02T16:29:09.000Z",
+	"intents"				: [
+								{
+									"intent" 		: "Aeroporto",
+									"confidence"	: "0.16709978332713935"
+								},
+								{
+									"intent" 		: "vacinação",
+									"confidence"	: "1"
+								}
+							  ],
+	"entities"				: [
+								{
+									"entity" 		: "Aeroporto",
+									"location"		: [0,4],
+									"value"			: "mala"
+								},
+								{
+									"entity" 		: "vacinação",
+									"location"		: [0,6],
+									"value"			: "cartão de vacinação"
+								}
+							  ]
+}
+
+\end{lstlisting}

@@ -1,0 +1,16 @@
+{
+	"mysqldb": {
+		"client": "mysql",
+		"connection": {
+			"host": "",
+			"user": "",
+			"password": "",
+			"database": "",
+			"charset": "utf8"
+		}
+	},
+
+	"mongodb": {
+     		 "database" : "mongodb://localhost:3050/chatbot"
+	}
+}

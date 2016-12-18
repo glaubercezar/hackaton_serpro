@@ -1,0 +1,52 @@
+<div ng-show="showScreen"> 
+    <a ui-sref="protocolos" class="pull-right btn btn-primary btn-outline btn-rounded">Voltar</a>
+    <h2>Protocolos <small>Visualizar / Alterar informações.</small></h2>
+    <div class=jumbotron>
+
+        <div class=container>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Informações do atendimento</div>
+                <div class="panel-body">
+                    
+                    <div class="box_info">
+                        <h4>Usuário:</h4> {{response.user.firstName}} {{response.user.lastName}}
+                        <hr>
+                        <h4>Data de atendimento:</h4> {{response.date}}
+                        <hr>
+                        <h4>Protocolo:</h4> {{response.code}}
+                        <hr>
+                        <h4>Descrição do problema:</h4> {{response.description}}
+                        <hr>
+                        <h4>Avaliação do atendimento (1 a 5):</h4> {{response.grade}}
+                        <hr>
+                        <br>
+                    </div>
+ 
+                    <div class="box_imgs" id="imgss">
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Alterar status da reclamação</div>
+                <div class="panel-body">
+                   
+                    <h4>Status:</h4> 
+
+                    <div class="status_control">
+                        <div class="options">
+                            <input type="radio" ng-model="response.status" value="Criado"> Criado<br>
+                            <input type="radio" ng-model="response.status" value="Em andamento"> Em andamento<br>
+                            <input type="radio" ng-model="response.status" value="Concluído"> Concluído
+                        </div>
+                        <textarea ng-model="response.message" class="obs_control form-control"></textarea>
+                        <a class="btn btn-success btn-lg btn_control" ng-click="sendStatusForm()" ng-disabled="sendButtonDisabled" role="button">Salvar</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

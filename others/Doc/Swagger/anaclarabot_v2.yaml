@@ -1,0 +1,846 @@
+
+# this is an RESTful documentation of the AnaclaraBot API
+swagger: '2.0'
+
+# Informations about the project
+info:
+  title: AnaclaraBot
+  description: O AnaclaraBot é um software de conversação automatica, ou seja, não é necessário que uma pessoa esteja do outro lado para responder as perguntas de um internauta.
+  version: "1.0.0"
+  
+# the domain of the service
+#host: cognitivesolutionsbr.com/api
+host: 'localhost:3000'
+basePath: /api
+
+# array of all schemes that your API supports
+schemes:
+  - http
+  
+# MIME types the APIs can produce (output).
+consumes:
+  - application/json
+produces:
+  - application/json
+
+
+#############################################################################
+#                                   Paths                                
+#############################################################################
+
+paths:
+
+  /admin/login:
+
+    post:
+      description: |
+        Verificar se tem acesso a area restrita
+      parameters:
+        - name: email
+          description: Nome do chatbot
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: password
+          description: Titulo do chatbot
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+
+      tags:
+        - Login
+      responses:
+
+        200:
+          description: Tem acesso ao sistema
+        403:
+          description: Nao tem acesso ao sistema
+        default:
+          description: Erro Inexperado
+          schema:
+            $ref: '#/definitions/Error'
+
+  /admin/configuration:
+    get:
+      description: |
+        Mostra a configuracao atual
+      tags:
+        - Admin
+      responses:
+        200:
+          description: Objeto de Configuration
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/definitions/Configuration'
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+          
+    post:
+      description: |
+        Cadastramento da configuracao
+      parameters:
+        - name: name
+          description: Nome do chatbot
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: title
+          description: Titulo do chatbot
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: workspaceid
+          description: Workspaceid da configuracao do Watson
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: watsonUsername
+          description: watsonUsername da configuracao do Watson
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: watsonPassword
+          description: watsonPassword da configuracao do Watson
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: watsonUrl
+          description: watsonUrl da configuracao do Watson
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: watsonVersion
+          description: watsonVersion da configuracao do Watson
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: watsonVersionDate
+          description: watsonVersionDate da configuracao do Watson
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+
+      tags:
+        - Admin
+      responses:
+
+        200:
+          description: Objeto do usuário cadastrado.
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: Erro de validação
+          schema:
+            $ref: '#/definitions/CommomError'
+        default:
+          description: Erro Inexperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+
+  /conversation:
+    get:
+      description: |
+        Lista todos as Conersas cadastradas
+      tags:
+        - Conversations
+      responses:
+        200:
+          description: Array de Objetos de Conversation
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Conversation'
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+    post:
+      description: |
+        Cadastramento das conversations, com dados enviados pelos usuarios e pelo bot.
+      parameters:
+        - name: email
+          description: Email do internauta
+          required: true
+          type: string
+          in: formData
+          minLength: 5
+          maxLength: 200
+          
+        - name: text
+          description: Texto que o internauta quer enviar para o chatbot
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          
+        - name: context
+          description: Texto que o internauta quer enviar para o chatbot
+          required: false
+          type: string
+          in: formData
+          minLength: 40
+          
+      tags:
+        - Conversations
+      responses:
+        200:
+          description: Resposta do watson
+          schema:
+            $ref: '#/definitions/BotResponse'
+        400:
+          description: Erro de validação
+          schema:
+            $ref: '#/definitions/CommomError'
+        404:
+          description: Conversa esta inativa, foi fechada por falta de iteracao
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+  
+  /conversation/{id}:
+    delete:
+      description: |
+        Deleta uma conversa apartir do conversation_id
+      parameters:
+        - name: id
+          description: Id da conversa
+          required: true
+          type: string
+          in: path
+      tags:
+        - Conversations
+      responses:
+        200:
+          description: Http 200
+        404:
+          description: Nenhuma conversa encontrada
+        400:
+          description: Erro de validação
+          schema:
+            $ref: '#/definitions/CommomError'
+        default:
+          description: Erro Inesperado
+          schema:
+            $ref: '#/definitions/Error'
+  
+  /conversation/end/{id}:
+    get:
+      description: |
+        Finaliza uma conversa
+      parameters:
+        - name: id
+          description: Id da conversa
+          required: true
+          type: string
+          in: path
+      tags:
+        - Conversations
+      responses:
+        200:
+          description: Http 200
+        404:
+          description: Nenhuma conversa encontrada
+        400:
+          description: Erro de validação
+          schema:
+            $ref: '#/definitions/CommomError'
+        default:
+          description: Erro Inesperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /conversation/status/{id}:
+    get:
+      description: |
+        Verifica se conversa ainda esta ativa
+      parameters:
+        - name: id
+          description: Id da conversa
+          required: true
+          type: string
+          in: path
+      tags:
+        - Conversations
+      responses:
+        200:
+          description: Conversa ativa
+        404:
+          description: Conversa inativa
+        400:
+          description: Erro de validação
+          schema:
+            $ref: '#/definitions/CommomError'
+        default:
+          description: Erro Inesperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /clerk:
+    get:
+      description: |
+        Lista todos as atendentes cadastradas
+      tags:
+        - Clerks
+      responses:
+        200:
+          description: Array de Objetos de Clerk
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Clerk'
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+    post:
+      description: |
+        O gerente do AnaclaraBot envia a imagem de uma atendente
+
+        * A imagem deve ser obrigatoria
+        
+      consumes:
+        - multipart/form-data
+        
+      parameters:
+        - name: image
+          description: Imagem da atendente
+          required: true
+          type: file
+          in: formData
+          
+      tags:
+        - Clerks
+
+      responses:
+        200:
+          description: Imagem enviada pelo gerente
+          schema:
+            $ref: '#/definitions/Clerk'
+          
+        400:
+          description: Erro de validação
+          schema:
+            $ref: '#/definitions/CommomError'
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+  
+  /clerk/last:
+    get:
+      description: |
+        Retorna a ultima imagem enviada
+      tags:
+        - Clerks
+      responses:
+        200:
+          description: Objeto de Clerk
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/definitions/Clerk'
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /interactions:
+    get:
+      description: |
+        Lista todos as interactions cadastradas
+      tags:
+        - Interactions
+      responses:
+        200:
+          description: Array de Objetos de interacao
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Interaction'
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /interactions/{_id}:
+    get:
+      description: |
+        Retorna uma interacao pelo id passado por parametro
+      parameters:
+        - name: _id
+          description: Id da interaçcao
+          required: true
+          type: string
+          in: path
+      tags:
+        - Interactions
+      responses:
+        200:
+          description: Objeto da Interaction
+          schema:
+            type: object
+            properties:
+              data:
+                $ref: '#/definitions/Interaction'
+        default:
+          description: Erro Inesperado
+          schema:
+            $ref: '#/definitions/Error'
+      
+
+  /login:
+    post:
+      description: |
+        O internauta informa seu email, para verificar se os dados dele estao no banco de dados.
+
+        * O email deve ser obrigatorio
+      parameters:
+        - name: email
+          description: Email do internauta
+          required: true
+          type: string
+          in: formData
+          minLength: 5
+          maxLength: 200
+      tags:
+        - Login
+      responses:
+        200:
+          description: Dados do internauta cadastrado no banco de dados
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: Erro de validação
+          schema:
+            $ref: '#/definitions/CommomError'
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+  /users:
+    get:
+      description: |
+        Lista todos os internautas cadastrados
+      tags:
+        - Users
+      responses:
+        200:
+          description: Array de Objetos do usuario
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/User'
+        default:
+          description: Erro inesperado
+          schema:
+            $ref: '#/definitions/Error'
+          
+    post:
+      description: |
+        Cadastramento de internautas, com as seguintes regras:
+
+        * O firstName não pode ser vazio.
+        * O lastName não pode ser vazio.
+        * O email deve ser válido.
+        * O Cep deve ter 8 caracteres
+      parameters:
+        - name: firstName
+          description: Primeiro nome do internauta
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: lastName
+          description: Sobrenome do internauta
+          required: true
+          type: string
+          in: formData
+          minLength: 1
+          maxLength: 200
+        - name: email
+          description: Email do internauta
+          required: true
+          type: string
+          in: formData
+          minLength: 5
+          maxLength: 200
+        - name: cep
+          description: Cep da residencia do internauta
+          required: true
+          type: string
+          in: formData
+          minLength: 8
+          maxLength: 8
+        
+      tags:
+        - Users
+      responses:
+
+        200:
+          description: Objeto do usuário cadastrado.
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: Erro de validação
+          schema:
+            $ref: '#/definitions/CommomError'
+        default:
+          description: Erro Inexperado
+          schema:
+            $ref: '#/definitions/Error'
+            
+    delete:
+      tags:
+        - Users
+      description: |
+        Remove um usuario do banco de dados
+
+        * O email do internauta a ser excluido é obrigatorio
+      parameters:
+        - name: email
+          description: Email do internauta
+          required: true
+          type: string
+          in: formData
+          minLength: 5
+          maxLength: 200
+      responses:
+        200:
+          description: OK
+        default:
+          description: Erro Inexperado
+          schema:
+            $ref: '#/definitions/Error'
+        400:
+          description: Erro de validação.
+          schema:
+            $ref: '#/definitions/CommomError'
+        
+            
+definitions:
+
+  User:
+    type: object
+    properties:
+      _id:
+        $ref: '#/definitions/User_id'
+      firstName:
+          description: Primeiro nome do internauta
+          type: string
+      lastName:
+          description: Sobrenome do internauta
+          type: string
+      email:
+          description: Email do internauta
+          type: string
+          format: email
+      cep:
+          description: Cep do internauta
+          type: string
+      conversations:
+          description: Array de chaves primarias referentes as Conversations
+          type: array
+          items:
+              $ref: '#/definitions/Conversation_id'
+
+  Entity:
+    type: object
+    properties:
+      _id:
+        type: integer
+        description: Chave primaria da entidade Entity
+      entity:
+          description: Entity vinda do watson
+          type: string
+      location:
+        description: Array de locations do watson
+        type: array
+        items:
+          type: number
+          format: int32
+      value:
+          description: Values vindos do watson
+          type: string
+   
+  Interaction:
+    type: object
+    properties:
+      _id:
+        $ref: '#/definitions/Interaction_id'
+      interactionType:
+          description: Tipo da interacao
+          type: string
+      userTextInteraction:
+          description: Texto que o internauta enviou para o back-end
+          type: string
+      userImageInteraction:
+          description: Mensagem em formato de imagem que o internauta enviou para o back-end
+          type: string
+          format: byte
+      userSoundInteraction:
+          description: Mensagem em formato de som que o internauta enviou para o back-end
+          type: string
+          format: byte
+      botTextInteraction:
+          description: Texto que o watson enviou para o back-end
+          type: string
+      botImageInteraction:
+          description: Mensagem em formato de imagem que o watson enviou para o back-end
+          type: string
+          format: byte
+      botSoundInteraction:
+          description: Mensagem em formato de som que o watson enviou para o back-end
+          type: string
+          format: byte
+      intents:
+          description: Intents vindo do watson
+          type: array
+          items:
+              $ref: '#/definitions/Intent'
+      entities:
+          description: Entities vindo do watson
+          type: array
+          items:
+              $ref: '#/definitions/Entity'
+              
+  Conversation:
+    type: object
+    properties:
+      _id:
+        type: integer
+        description: Chave primaria da entidade Conversation
+      date:
+          description: Data da conversa
+          type: string
+          format: date
+      conversation_id:
+          $ref: '#/definitions/Conversation_id'
+      user:
+          $ref: '#/definitions/User_id'
+      timeInitial:
+          description: Horario que iniciou a conversa
+          type: string
+      timeEnd:
+          description: Horario que terminou a conversa
+          type: string
+      automaticallyClosed:
+          description: Horario que terminou a conversa
+          type: boolean
+      interactions:
+          description: Array de interacoes de uma unica conversa
+          type: array
+          items:
+              $ref: '#/definitions/Interaction_id'
+      quiz:
+          description: Array de questionarios para uma conversa
+          type: array
+          items:
+              $ref: '#/definitions/Quiz'
+              
+  Intent:
+    type: object
+    properties:
+      _id:
+        type: integer
+        description: Chave primaria da entidade Intent
+      intent:
+          description: Intent from watson
+          type: string
+      confidence:
+          description: Confidence from watson
+          type: number
+          format: double
+  
+  Quiz:
+    type: object
+    properties:
+      _id:
+        type: integer
+        description: Chave primaria da entidade Quiz
+      type:
+          description: Tipo de questionario
+          type: string
+      question:
+          description: Texto do questionario
+          type: string
+      choices:
+          description: Array de escolhar referentes a um questionario (Quiz)
+          type: array
+          items:
+              $ref: '#/definitions/Choice' 
+          
+          
+  Choice:
+    type: object
+    properties:
+      _id:
+        type: integer
+        description: Chave primaria da entidade Choice
+      choice:
+          description: Texto da opcao de escolha
+          type: string
+      userSelected:
+          description: Identificador informando se o usuario escolheu essa opcao
+          type: boolean      
+          
+  CommomError:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+        
+  Clerk:
+    type: object
+    properties:
+      _id:
+        type: integer
+        description: Chave primaria da entidade Cleark
+      image:
+        type: object
+        properties:
+          data:
+              description: A imagem em formato Byte
+              type: string
+              format: byte
+          contentType:
+              description: Tipo da imagem
+              type: string 
+        
+  Conversation_id:
+    type: string
+    description: Id da conversa vinda do watson
+    
+  User_id:
+    type: string
+    description: Id do usuario
+    
+  Interaction_id:
+    type: string
+    description: Id das interacoes do usuario com o chat. Chave primaria da entidade Interaction.
+  
+  Configuration:
+    type: object
+    properties:
+      _id:
+        description: Chave primaria que identifica a configuracao
+        type: string
+      name:
+          description: Nome do chatbot
+          type: string
+      title:
+          description: Titulo do chatbot
+          type: string
+      workspaceid:
+          description: Numero workspaceid da configuracao do watson
+          type: string
+      watsonUsername:
+          description: Username da configuracao do watson
+          type: string
+      watsonPassword:
+          description: Configuracao da configuracao do watson
+          type: string
+      watsonUrl:
+          description: Url da configuracao do watson
+          type: string
+      watsonVersion:
+          description: Versao da configuracao do watson
+          type: string
+      watsonVersionDate:
+          description: Data da versao da configuracao do watson
+          type: string
+  
+  BotResponse:
+    type: object
+    properties:
+      botText:
+        type: string
+      context:
+        type: object
+        properties:
+          conversation_id:
+              description: Conversation_id from watson
+              type: string
+          defaultCounter:
+              description: Counter from watson
+              type: number
+              format: int32
+          system:
+            type: object
+            properties:
+              dialog_stack:
+                  description: Array of dialog_stack from watson
+                  type: array
+                  items:
+                      $ref: '#/definitions/DialogNode'
+              dialog_turn_counter:
+                  description: Turn counter from watson
+                  type: number
+                  format: int32
+              dialog_request_counter:
+                  description: Request counter from watson
+                  type: number
+                  format: int32
+  
+  DialogNode:
+    type: object
+    properties:
+      dialog_node:
+        type: string
+  
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+

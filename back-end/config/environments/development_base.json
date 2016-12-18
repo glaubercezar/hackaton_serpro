@@ -1,0 +1,12 @@
+{
+    "port" 						  : 3012,
+    "databaseCollection"		  : "db_development",
+    "databaseUse"  				  : "mongodb",
+    "watsonUsername"              : "e01c3c9f-47ac-4421-ad27-6a0959f8d080",
+    "watsonPassword"              : "23kqErpK4b1b",
+    "watsonUrl"                   : "https://gateway.watsonplatform.net/conversation/api",
+    "watsonVersion"               : "v1",
+    "watsonVersionDate"           : "2016-09-20",
+    "watsonWorkspaceId"           : "600d461a-ac5e-4972-bd18-24bdfb3c07a2",
+    "minutesToCloseConversation"  : 3
+}

@@ -1,0 +1,13 @@
+
+# Objeto User
+
+{
+	"userId" 			: 1,
+	"firstName" 		: "Luiz",
+	"lastName"  		: "Medeiros",
+	"email"				: "luiz.medeiros@cognitivesolutions.com.br",
+	"cep"				: "72000-000",
+	"conversations"		: ["12329-asdasd21-asdaad", "kopsa-09877-asd-asdad"]
+}
+
+

@@ -1,0 +1,11 @@
+\begin{enumerate}
+\item \textbf{Problema:} Com o AnaclaraBot em pleno funcionamento, a empresa poderá reduzir os gastos de pessoal drasticamente. Já que, não será necessário uma equipe de telemarketing para se comunicar com os clientes, salvo em situações bastante específicas. O AnaclaraBot responderá e interpretará as interações com o cliente usando linguagem natural. É muito importante que o administrador do sistema alimente o \emph{Watson} corretamente, abrangindo os assuntos mais importantes, cujo os clientes necessitam de respostas ou informações.
+
+\item \textbf{Regras de Negócio:} A versão do \emph{front-end} assim como \emph{back-end} será colocada em um servidor de ultravelocidade, o qual utiliza a tecnologia de \emph{cloud / elastic}, fornecido pela empresa \emph{Amazon}. Além dos arquivos de código do software, o BD (Banco de Dados) estará também nesse servidor. Toda a responsabilidade de tolerância a falhas e segurança de armazenamento das informações são de responsabilidade da mantenendora do servidor (\emph{Amazon}).
+
+\item \textbf{Usuários do Sistema:} O sistema contempla basicamente 2 usuários: O \underline{Adminsitrador}, o qual alimenta/treina o \emph{Watson} e o \underline{Internauta} que interage com o \emph{Watson}, já treinado.
+
+\item \textbf{Armazenamento:} Todas as conversas entre os internautas e o \emph{Watson} são persistidas em um banco de dados. Esses dados, posteriormente, poderão ser usados por alguma ferramenta de \emph{Business Intelligence } para que gere alguma informação relevante para a empresa.
+
+\item \textbf{Desenvolvimento:} O desenvolvimento do software segue o padrão MVC, tanto o \textit{front-end} com o AngularJs (\underline{View:} Layout da aplicação;  \underline{Controller:} Chamadas a api's; \underline{Model: } Modelos dos objetos a serem enviados nas api's. ), quanto o \textit{back-end} com o NodeJs (\underline{View: } Especificação das api's; \underline{Controller:} Lógica de armazenamento no banco; \underline{Model: } Modelo MongoDB para salvar o objeto ).
+\end{enumerate}

@@ -1,0 +1,33 @@
+<div ng-show="showScreen">
+    <a ui-sref="informacoesCad" class="pull-right btn btn-primary btn-outline btn-rounded">Cadastrar</a>
+    <h2>Informações <small>Lista de páginas (Conteúdo de pop-ups)</small></h2>
+    <div class=jumbotron>
+
+        <div class=container>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Título</th>
+                        <th>ID</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="info in infoPages">
+                        <td>{{$index + 1}}</td>
+                        <td>{{info.title}}</td>
+                        <td>{{info._id}}</td>
+                        <td align="right">
+                            <button type="button" ui-sref="informacoesEdit({id:info._id})" class="btn btn-primary btn-xs">Editar</button>
+                            <button type="button" ng-click="removePage(info._id, $index)" class="btn btn-danger btn-xs">Remover</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

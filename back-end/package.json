@@ -1,0 +1,33 @@
+{
+  "name": "nodeapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "bookshelf": "^0.9.4",
+    "connect-multiparty": "^2.0.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "express-validator": "^2.21.0",
+    "html-pdf": "^2.1.0",
+    "knex": "^0.10.0",
+    "moment": "^2.15.2",
+    "moment-timezone": "^0.5.7",
+    "mongodb": "~2.2.11",
+    "mongoose": "^4.6.5",
+    "mysql": "^2.10.2",
+    "node-cron": "^1.1.2",
+    "nodemailer": "^2.7.0",
+    "nodemailer-smtp-transport": "^2.7.2",
+    "oauth2orize": "^1.2.2",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "passport-http-bearer": "^1.0.1",
+    "vcap_services": "^0.2.0",
+    "watson-developer-cloud": "^2.7.1",
+    "winston": "~2.3.0"
+  }
+}

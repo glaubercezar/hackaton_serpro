@@ -1,0 +1,13 @@
+\select@language {brazilian}
+\contentsline {section}{Pref\IeC {\'a}cio}{2}{section*.2}
+\contentsline {section}{Introdu\IeC {\c c}\IeC {\~a}o}{3}{section*.3}
+\contentsline {section}{Descri\IeC {\c c}\IeC {\~a}o Geral do Sistema}{4}{section*.4}
+\contentsline {section}{Requisitos}{5}{section*.5}
+\contentsline {section}{Cronograma de Desenvolvimento}{6}{section*.7}
+\contentsline {section}{Tecnologias a serem utilizadas}{7}{section*.8}
+\contentsline {section}{Encapsulamento}{7}{section*.9}
+\contentsline {section}{Arquitetura do Banco de Dados}{8}{section*.11}
+\contentsline {section}{Script de cria\IeC {\c c}\IeC {\~a}o do Banco de Dados}{12}{section*.13}
+\contentsline {section}{AnaclaraBot em imagens}{14}{section*.14}
+\contentsline {section}{Futuras implementa\IeC {\c c}\IeC {\~o}es}{15}{section*.15}
+\contentsline {section}{Refer\IeC {\^e}ncias}{16}{section*.16}
